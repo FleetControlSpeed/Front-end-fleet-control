@@ -1,6 +1,6 @@
 <template>
 
-  <img alt="Vue logo" class="logo" src="../assets/fleetControll.png">
+<img alt="Vue logo" class="logo" src="../assets/fleetControll.png">
   <h1> BEM VINDO!</h1>
 
 <form>
@@ -14,7 +14,7 @@
     <button type="submit" class="btn">ENTRAR</button>
   </div>  
   <div class="esqueciSenha">
-    <a href="#" > ESQUECI MINHA SENHA</a>
+    <router-link to="/about" > ESQUECI MINHA SENHA</router-link>
   </div>
 </form>
 
@@ -24,21 +24,16 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'HelloWorld',
-  props: {
-    msg: String,
-  },
 });
+
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
 .logo{
   margin-top: 100px;
   transform: scale(1.2);
 }
-
 
 h1{
   font-weight: 700;
@@ -83,7 +78,7 @@ h1{
   width: 200px;
   height: 40px;
   font-weight: 700;
-  border-radius: 1000px;
+  border-radius: 5px;
   transition: 1s;
 }
 
@@ -106,7 +101,8 @@ h1{
 
 .form-control{
   display: inline-table;
-  border-radius: 1000px;
+  border-radius: 5px;
 }
 
 </style>
+
