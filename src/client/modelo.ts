@@ -1,4 +1,5 @@
-import { Modelo } from "@/model/Modelo";
+
+import { Modelo } from "@/models/modelo";
 import axios, { AxiosInstance } from "axios";
 
 export class ModeloClient{
