@@ -7,6 +7,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'home',
     component: HomeView
   },
+ 
+  {
+    path: '/listagem',
+    name: 'listagem',
+    component: () => import(/* webpackChunkName: "listagem" */ '../views/listagem-condutor.vue')
+  },
   {
     path: '/about',
     name: 'about',

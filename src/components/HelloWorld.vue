@@ -11,7 +11,9 @@
     <input type="password" class="form-control" id="Senha" placeholder="SENHA">
   </div> 
   <div>
-    <button type="submit" class="btn">ENTRAR</button>
+    <router-link to= "/listagem">
+      <button type="submit" class="btn">ENTRAR</button>
+    </router-link>
   </div>  
   <div class="esqueciSenha">
     <a href="#" > ESQUECI MINHA SENHA</a>
@@ -35,7 +37,7 @@ export default defineComponent({
 <style scoped lang="scss">
 
 .logo{
-  margin-top: 100px;
+  //margin-top: 100px;
   transform: scale(1.2);
 }
 

@@ -1,18 +1,23 @@
 <template>
   <nav>
-
-  </nav>
+    </nav >
   <router-view/>
 </template> 
 
+<script>
+  
+</script>
+
+
 <style lang="scss">
 #app {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-align: center;
-  color: white;
-  background-color: #064F51;
-  height: 940px;
+  // color: white;
+  height: 100vh;
+  width:100vw;
 }
+
 
 </style>
