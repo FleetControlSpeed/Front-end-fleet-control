@@ -1,12 +1,12 @@
 export enum Marca{
-    FIAT,
-    CHEVROLET,
-    VOLKSWAGEN,
-    TOYOTA,
-    HYUNDAI,
-    RENAULT,
-    HONDA,
-    VOLVO,
-    SCANIA,
-    MERCEDES
+    FIAT ="FIAT",
+    CHEVROLET ="CHEVROLET",
+    VOLKSWAGEN ="VOLKSWAGEN",
+    TOYOTA = "TOYOTA",
+    HYUNDAI = "HYUNDAI",
+    RENAULT = "RENAULT",
+    HONDA = "HONDA",
+    VOLVO = "VOLVO",
+    SCANIA = "SCANIA",
+    MERCEDES = "MERCEDES"
 }
