@@ -1,186 +1,57 @@
 <template>
-    <div class="container tabela">
-            <div class="container text-center">
-                <div class="row align-items-start">
-                    <div class="col opcoes">
-                        Lista de viagens
-                    </div>
-                </div>
-                <div class="row align-items-end">
-                    <div class="col opcoes">
-                        <button type="button"> Voltar </button>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="row inicio">
-                <div class="col"> Nome </div>
-                <div class="col"> ID </div>
-                <div class="col"> Hora de inicio </div>
-                <div class="col"> Data começo </div>
-                <div class="col"> Data termino </div>
-                <div class="col"> Status </div>
-                <div class="col"> Detalhes </div>
-            </div>
+
+    <div class="container" style="margin-top: 10px;">
+  
+      <div class="row">
+        <div class="col-md-10 text-start"> <p class="fs-3 texto-list"> Lista de Viagens </p> </div>
+        <div class="col-md-2"> 
+          <div class="d-grid gap-2">
+            <router-link type="button" class="btn btn-success" 
+              to="/veiculo-cadastrar">Voltar
+            </router-link>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-12">  
+          <table class="table">
+            <thead class="table-secondary" >
+              <tr>
+                <th scope="col"> ID </th>
+                <th scope="col"> Nome </th>
+                <th scope="col"> Hora Inicio </th>
+                <th scope="col"> Data Inicio </th>
+                <th scope="col"> Data Fim </th>
+                <th scope="col"> Detalhes </th>
+              </tr>
+            </thead>  
+            <tbody class="table-group-divider">
+              <tr v-for="item in historicoList" :key="item.id">
+                <th class="col-md-1">{{ item.id }}</th>              
+                <th class="col-md-2"> {{ item.nome }} </th>
+                <th class="col-md2">{{item.hora}}</th>
+                <th class="col-md1">{{item.data}}</th>
+                <th class="col-md1">{{item.dataFim}}</th>
+                <th class="col-md-2">
+                </th>
+              </tr>
+  
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    
-    </template>
-    
-    <script lang="ts">
-    import { defineComponent } from 'vue';
-    import {multa} from '@/models/multa'
-    import multaClient  from '@/client/multaClient';
-    
-    export default defineComponent({
-      name: 'VeiculoLista',
-      data() {
-        return {
-            multasList: new Array<multa>(),
-    
-        }
-      },
-      mounted() {
-        this.findAll();
-      },
-      methods: {
-    
-        findAll() {
-          multaClient.listaAll()
-            .then(sucess => {
-              this.multasList = sucess
-            })
-            .catch(error => {
-              console.log(error);
-            });
-        },
-      }
-    });
-    
-    </script>
-    
-    <style lang="scss">
-    
-    .nav{
-       background-color: #064F51;
-       color: white;
-    }
-    
-    .logo{
-        padding-left: 8vh;
-    }
-    
-    .nav-item{
-        padding-top: 1.5vh;
-        justify-content: center;
-        align-items: center;
-        padding-left: 8vh;
-    }
-    
-    .botao{
-        color: white;
-        margin-top: 1.5vh;
-        background-color: #064F51;
-    }
-    
-    .logoUsuario{
-        margin-top: 2vh;
-        margin-right: 4vh;
-        background-color: #096366dc;
-        width: 3vw;
-        height: 3vh;
-        border-radius: 5px;
-    }
-    
-    .nomeUsuario{
-        margin-top: 2vh;
-        margin-right: 1.5vh;
-        border-radius: 5px;
-    }
-    
-    
-    
-    .tabela{
-            margin-top: 2vw;
-            background-color: WHITE;
-            height: 75vh;
-            border-radius: 6px;
-        
-        }
-        
-        .inicio{
-            background-color: rgba(128, 128, 128, 0.144);
-            color: grey;
-            text-align: center;
-            align-items: center;
-            font-size: 10px;
-            font-weight: bolder;
-            border-radius: 5px;
-            margin: 2vh;
-            height: 5vh;
-          
-        }
-    
-        .inativo{
-                color: red;
-                font-weight: bolder;
-                background-color: rgba(255, 0, 0, 0.349);
-                border-radius: 5px;
-            }
-        
-            .ativo{
-                color: green;
-                font-weight: bolder;
-                background-color: rgba(0, 128, 0, 0.349);
-                border-radius: 5px;
-            }
-        
-        .itens{
-            background-color: white;
-            align-items: center;
-            text-align: center;
-            border-radius: 5px;
-            margin: 2vh;
-            transition: 2s;
-            height: 5vh;
-            
-        }
-        
-        .col{
-            font-size: 15px;
-            font-weight: 100;
-            
-        }
-    
-        .page-link{
-            width: 2vw;
-            color: black;
-        }
-        
-        .pagination{
-            margin-top: 5vw;
-            justify-content: center;
-        }
-        
-        .opcoes{
-            color: black;
-            align-items: left;
-            text-align: left;
-            border-radius: 5px;
-            margin-top: 2vw;
-    
-            font-size: 2vh;
-            font-weight: bolder;
-        }
-        
-        .botao-cadastrar{
-            height: 2.5vh;
-            margin-top: 1.5vw;
-            text-align: right;
-        }
-    
-        .botao-texto{
-        color: white;
-        background-color: #064F51;
-    }
-       
-    </style>
+  
+  </template>
+  
+  <script lang="ts">
+  
+  </script>
+
+  <style lang="scss">
+  .texto-list{
+    color:black;
+  }
+
+  </style>
