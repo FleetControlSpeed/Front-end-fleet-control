@@ -1,7 +1,7 @@
 import { AbstractEntity } from "./abstract.entity";
 import { Cargo } from "./enums/cargo";
 
-export class Usuarios extends AbstractEntity{
+export class Usuario extends AbstractEntity{
     email!: string
     usuario!: string
     senha!: string
