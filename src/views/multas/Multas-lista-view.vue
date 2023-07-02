@@ -22,7 +22,7 @@
                 </thead>
                 <tbody class="table">
                     <tr v-for="item in multasList" :key="item.id">
-                        <th scope="row">{{item.usuario.nome}}</th>
+                        <th scope="row">{{item.usuario}}</th>
                         <th scope="row">{{item.id}}</th> 
                         <th scope="row">{{item.valor}}</th> 
                         <th scope="row">{{item.tipoMulta}}</th> 
@@ -47,7 +47,8 @@ export default defineComponent({
   name: 'VeiculoLista',
   data() {
     return {
-        multasList: new Array<multa>()
+        multasList: new Array<multa>(),
+
     }
   },
   mounted() {

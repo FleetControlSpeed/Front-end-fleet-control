@@ -6,4 +6,8 @@ export class multa extends AbstractEntity{
     tipoMulta !: string
     dataMulta !: Date
     usuario !: Usuario
+    constructor(){
+        super()
+        this.usuario = new Usuario
+    }
 }
