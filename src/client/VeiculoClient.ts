@@ -2,6 +2,8 @@ import { Veiculo } from "@/models/veiculo";
 import axios, { AxiosInstance } from "axios";
 
 class VeiculoClient {
+    
+    axiosClient: AxiosInstance;
 
     constructor() {
         this.axiosClient = axios.create({

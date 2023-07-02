@@ -3,14 +3,14 @@
     <div class="d-flex fundo-multa">
         <div class=" table-responsive-lg col-md-10 offset-md-1">
             <div class="topo-tabela">
-                <h1 class="texto-multa">Lista de Multas</h1>
-            <button type="submit" class="btn">
+                <h1 class="texto-pre-nav col-md-10 align-center">Lista de Multas</h1>
+                <button type="submit" class="btn">
                 <h2>Cadastrar Multa</h2>
                 <img>
             </button>
         </div>
             <table class="table table-striped table-bordered">
-                <thead class="table table-dark">
+                <thead class="table table-green">
                     <tr>
                         <th scope="col">Nome</th>
                         <th scope="col">ID</th> 
@@ -20,7 +20,7 @@
                         <th scope="col">STATUS</th>
                     </tr>
                 </thead>
-                <tbody class="table-striped">
+                <tbody class="table">
                     <tr>
                         <th scope="row">Cristovão Martins</th>
                         <th scope="row">87364523</th> 
@@ -31,37 +31,6 @@
                             <input class="status-multa" type="text" placeholder="PAGO" readonly>
                         </th> 
                     </tr>
-                    <tr>
-                        <th scope="row">Gabriele Steinmetz</th>
-                        <th scope="row">57432231</th> 
-                        <th scope="row">195,23</th> 
-                        <th scope="row">Velocidade</th> 
-                        <th scope="row">31/02/2025</th> 
-                        <th scope="row">
-                            <input class="status-multa" type="text" placeholder="PAGO" readonly>
-                        </th> 
-                    </tr>
-                    <tr>
-                        <th scope="row">Pedro Henrique</th>
-                        <th scope="row">88965325</th> 
-                        <th scope="row">195,23</th> 
-                        <th scope="row">Velocidade</th> 
-                        <th scope="row">24/04/2024</th> 
-                        <th scope="row">
-                            <input class="status-multa" type="text" placeholder="PAGO" readonly>
-                        </th> 
-                    </tr>
-                    <tr>
-                        <th scope="row">Ademar Ramalho</th>
-                        <th scope="row">80028922</th> 
-                        <th scope="row">195,23</th> 
-                        <th scope="row">Velocidade</th> 
-                        <th scope="row">17/11/2022</th> 
-                        <th scope="row">
-                            <input class="status-multa" type="text" placeholder="PAGO" readonly>
-                        </th> 
-                    </tr>
-                
                 </tbody>
             </table>
         </div>
@@ -70,6 +39,33 @@
 </template>
 
 <script lang="ts">
+    import { defineComponent } from 'vue';
+
+import VeiculoClient  from '@/client/VeiculoClient';
+
+export default defineComponent({
+  name: 'VeiculoLista',
+  data() {
+    return {
+        multasList: new Array<multa>()
+    }
+  },
+  mounted() {
+    this.findAll();
+  },
+  methods: {
+
+    findAll() {
+      VeiculoClient.listaAll()
+        .then(sucess => {
+          this.veiculosList = sucess
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+  }
+});
 
 </script>
 
@@ -110,4 +106,11 @@
     .btn:hover{
         background-color: #064f70;
     }
+    .texto-pre-nav{
+        font-family: Poppins;
+        font-size: 36px;
+        color:black;
+    }
+   
+   
 </style>
