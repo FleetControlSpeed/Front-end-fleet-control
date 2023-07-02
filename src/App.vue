@@ -10,7 +10,6 @@
   -webkit-font-smoothing: antialiased;
   text-align: center;
   color: white;
-  background-color: #064F51;
   height: 100vh;
   width: 100vw;
 }
