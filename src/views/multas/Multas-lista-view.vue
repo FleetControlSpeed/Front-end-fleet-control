@@ -1,41 +1,63 @@
 <template>
-<div class="flex:none">
-    <div class="d-flex fundo-multa">
-        <div class=" table-responsive-lg col-md-10 offset-md-1">
-            <div class="topo-tabela">
-                <h1 class="texto-pre-nav col-md-10 align-center">Lista de Multas</h1>
-                <button type="submit" class="btn">
-                <h2>Cadastrar Multa</h2>
-                <img>
-            </button>
-        </div>
-            <table class="table table-striped table-bordered">
-                <thead class="table table-green">
-                    <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">ID</th> 
-                        <th scope="col">Valor</th> 
-                        <th scope="col">Velocidade</th> 
-                        <th scope="col">Data da Multa</th> 
-                        <th scope="col">STATUS</th>
-                    </tr>
-                </thead>
-                <tbody class="table">
-                    <tr v-for="item in multasList" :key="item.id">
-                        <th scope="row">{{item.usuario}}</th>
-                        <th scope="row">{{item.id}}</th> 
-                        <th scope="row">{{item.valor}}</th> 
-                        <th scope="row">{{item.tipoMulta}}</th> 
-                        <th scope="row">{{item.dataMulta}}</th> 
-                        <th scope="row">
-                            <input class="status-multa" type="text" placeholder="PAGO" readonly>
-                        </th> 
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+
+<nav class=" navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid nav">
+    <img alt="Logo"  src="LogoNav.png" class="logo">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Motoristas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Veiculos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Configurações</a>
+        </li>
+      </ul>
+
+
+      <div class="d-flex">
+            <p class="nomeUsuario">Pedro Henrique</p>
+           <div class="logoUsuario">
+            P
+           </div>
+      </div>
+      <div>
+        <button class="btn botao" type="button">
+            Sair
+            <img src="LogoSair.png">
+        </button>
+      </div>
     </div>
+</nav>
+
+<div class="container tabela">
+        <div class="container text-center">
+            <div class="row align-items-start">
+                <div class="col opcoes">
+                    Lista de Multas
+                </div>
+           
+                <div class="col botao-cadastrar">
+                    <router-link to='/marca/cadastrar'>
+                        <button type="button" class="btn btn-success botao-texto"><img src="/logoCadastrar.png">Adicionar Multa</button>
+                    </router-link>
+                </div>
+            </div>
+        </div>
+
+        <div class="row inicio">
+            <div class="col"> Id </div>
+            <div class="col"> Nome</div>
+            <div class="col"> Status </div>
+            <div class="col"> Valor </div>
+            <div class="col"> Velocidade </div>
+            <div class="col"> Data da Multa </div>
+            <div class="col"> Detalhes </div>
+        </div>
 </div>
+
 </template>
 
 <script lang="ts">
@@ -71,47 +93,128 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-    input::placeholder{
-        color: #5F8D4E;
+
+.nav{
+   background-color: #064F51;
+   color: white;
+}
+
+.logo{
+    padding-left: 8vh;
+}
+
+.nav-item{
+    padding-top: 1.5vh;
+    justify-content: center;
+    align-items: center;
+    padding-left: 8vh;
+}
+
+.botao{
+    color: white;
+    margin-top: 1.5vh;
+    background-color: #064F51;
+}
+
+.logoUsuario{
+    margin-top: 2vh;
+    margin-right: 4vh;
+    background-color: #096366dc;
+    width: 3vw;
+    height: 3vh;
+    border-radius: 5px;
+}
+
+.nomeUsuario{
+    margin-top: 2vh;
+    margin-right: 1.5vh;
+    border-radius: 5px;
+}
+
+
+
+.tabela{
+        margin-top: 2vw;
+        background-color: WHITE;
+        height: 75vh;
+        border-radius: 6px;
+    
+    }
+    
+    .inicio{
+        background-color: rgba(128, 128, 128, 0.144);
+        color: grey;
         text-align: center;
+        align-items: center;
+        font-size: 10px;
+        font-weight: bolder;
+        border-radius: 5px;
+        margin: 2vh;
+        height: 5vh;
+      
     }
-    .status-multa{
-        background-color: #F4FFF3;
-        border: none;
-        width: 25%;
+
+    .inativo{
+            color: red;
+            font-weight: bolder;
+            background-color: rgba(255, 0, 0, 0.349);
+            border-radius: 5px;
+        }
+    
+        .ativo{
+            color: green;
+            font-weight: bolder;
+            background-color: rgba(0, 128, 0, 0.349);
+            border-radius: 5px;
+        }
+    
+    .itens{
+        background-color: white;
+        align-items: center;
+        text-align: center;
+        border-radius: 5px;
+        margin: 2vh;
+        transition: 2s;
+        height: 5vh;
+        
     }
-    .texto-multa{
-        font-size: 1em;
+    
+    .col{
+        font-size: 15px;
+        font-weight: 100;
+        
+    }
+
+    .page-link{
+        width: 2vw;
         color: black;
     }
-    .topo-tabela{
-        display: flex;
-        align-items: flex-end;
-        align-items: center;
+    
+    .pagination{
+        margin-top: 5vw;
+        justify-content: center;
     }
-    h2{
-        font-size: 0.7em;
-        color: #ffffff;
-        margin-top: 7%;
+    
+    .opcoes{
+        color: black;
+        align-items: left;
+        text-align: left;
+        border-radius: 5px;
+        margin-top: 2vw;
+
+        font-size: 2vh;
+        font-weight: bolder;
     }
-    .btn{
-        display: flex;
-        background-color: #064f51;
-        margin-left: 85.3%;
-        border-radius: 13px;
+    
+    .botao-cadastrar{
+        height: 2.5vh;
+        margin-top: 1.5vw;
+        text-align: right;
     }
-    .fundo-multa{
-        background-color: #ffffff;
-        width: 100%;
-    }
-    .btn:hover{
-        background-color: #064f70;
-    }
-    .texto-pre-nav{
-        font-family: Poppins;
-        font-size: 36px;
-        color:black;
-    }
-   
+
+    .botao-texto{
+    color: white;
+    background-color: #064F51;
+}
    
 </style>
