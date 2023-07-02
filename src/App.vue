@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <nav class=" navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid nav">
     <img alt="Logo"  src="LogoNav.png" class="logo">
@@ -17,7 +17,7 @@
       <div class="d-flex">
             <p class="nomeUsuario">Pedro Henrique</p>
            <div class="dropdown">
-            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">P</button>
+            <button type="button" class="btn opcoes-nav dropdown-toggle" data-bs-toggle="dropdown">P</button>
             <section class="dropdown-menu">
             <section class="dropdown-item">Perfil</section>
             <section class="dropdown-divider"></section>
@@ -51,6 +51,43 @@
   color: white;
   height: 100vh;
   width: 100vw;
+}
+.opcoes-nav{
+  color: white;
+  margin-top: 27%;
+}
+.nomeUsuario{
+  margin-top: 11%;
+}
+.nav{
+   background-color: #064F51;
+   color: white;
+}
+
+.logo{
+    padding-left: 8vh;
+}
+
+.nav-item{
+    padding-top: 1.5vh;
+    justify-content: center;
+    align-items: center;
+    padding-left: 8vh;
+}
+
+.botao{
+    color: white;
+    margin-top: 1.5vh;
+    background-color: #064F51;
+}
+
+.logoUsuario{
+    margin-top: 2vh;
+    margin-right: 4vh;
+    background-color: #096366dc;
+    width: 3vw;
+    height: 3vh;
+    border-radius: 5px;
 }
 
 </style>
