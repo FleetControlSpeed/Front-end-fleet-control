@@ -4,18 +4,28 @@
   <h1> BEM VINDO!</h1>
 
 <form>
+
   <div class="mb-3">
-    <input type="email" class="form-control" id="Login" placeholder="LOGIN">
+    <input type="email" class="form-control" id="input" placeholder="LOGIN">
   </div>
   <div class="mb-3">
-    <input type="password" class="form-control" id="Senha" placeholder="SENHA">
+    <input type="password" class="form-control" id="input" placeholder="SENHA">
   </div> 
+
   <div>
-    <button type="submit" class="btn"><router-link to="/lista-multas">ENTRAR</router-link></button>
+    <router-link to="/lista-multas">
+      <button type="submit" class="btn">
+        ENTRAR
+      </button>  
+    </router-link>
   </div>  
+
   <div class="esqueciSenha">
-    <router-link to="/about" > ESQUECI MINHA SENHA</router-link>
+    <router-link to="/about" >
+       ESQUECI MINHA SENHA
+    </router-link>
   </div>
+
 </form>
 
 </template>
@@ -30,52 +40,38 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .logo{
-  margin-top: 100px;
+  margin-top: 10vh;
   transform: scale(1.2);
 }
 
 h1{
   font-weight: 700;
-  font-size: 25px;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  font-size: 3vh;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
 }
 
-#Senha{
-  margin-top: 30px;
+#input{
+  margin-top: 3vh;
   background-color: #1CA290;
   border-color: #1CA290;
-  width: 250px;
-  height: 45px;
+  width: 32vh;
+  height: 5vh;
   transition: 1s;
 }
 
-#Senha:hover{
+#input:hover{
   transition: 1s;
-  transform: scale(1.1);
-}
-
-#Login{
-  background-color: #1CA290;
-  border-color: #1CA290;
-  width: 250px;
-  height: 45px;
-  align-items: center;
-  transition: 1s;
-}
-
-#Login:hover{
-  transition: 1s;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .btn{
   color: #363636;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  background-color: white;
-  width: 200px;
-  height: 40px;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+  background-color: #1CA290;
+  width: 20vh;
+  height: 4.5vh;
   font-weight: 700;
   border-radius: 5px;
   transition: 1s;
@@ -83,13 +79,13 @@ h1{
 
 .btn:hover{
   transition: 1s;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .esqueciSenha a{
   text-decoration: none;
   color: white;
-  font-size: 20px;
+  font-size: 2vh;
   transition: 1s;
 }
 
