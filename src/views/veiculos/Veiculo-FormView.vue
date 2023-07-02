@@ -42,7 +42,7 @@
         />
 
          <label>Tipo</label>
-          <select class="form-control" v-model="veiculo.modelo.marca">
+          <select class="form-control" v-model="veiculo.Modelo.Marca">
             <option value="undefined" disabled hidden>Marca</option>
             <option value="FIAT">FIAT</option>
             <option value="CHEVROLET">CHEVROLET</option>
