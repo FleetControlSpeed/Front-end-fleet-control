@@ -18,10 +18,16 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/RecuperarSenha.vue')
   },
   {
+
     path: '/lista-veiculos',
     name: 'lista-veiculos',
     component:() => import('../views/veiculos/Veiculo-lista-view.vue')
   },
+  {
+    path: '/listaCorridas',
+    name: 'listacorridas',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Motorista/Motorista-Historico.vue')
+  }
 ]
 
 const router = createRouter({
