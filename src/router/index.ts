@@ -16,6 +16,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/recuperarSenha',
     name: 'recuperarSenha',
     component: () => import(/* webpackChunkName: "about" */ '../views/RecuperarSenha.vue')
+  },
+  {
+    path: '/listaCorridas',
+    name: 'listacorridas',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Motorista/Motorista-Historico.vue')
   }
 ]
 
