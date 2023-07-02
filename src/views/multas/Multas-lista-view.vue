@@ -9,7 +9,7 @@
           <a class="nav-link active" aria-current="page" href="#">Motoristas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Veiculos</a>
+          <a class="nav-link" href="#">Veículos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Configurações</a>
