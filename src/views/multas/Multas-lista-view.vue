@@ -62,45 +62,6 @@ export default defineComponent({
 
 <style lang="scss">
 
-.nav{
-   background-color: #064F51;
-   color: white;
-}
-
-.logo{
-    padding-left: 8vh;
-}
-
-.nav-item{
-    padding-top: 1.5vh;
-    justify-content: center;
-    align-items: center;
-    padding-left: 8vh;
-}
-
-.botao{
-    color: white;
-    margin-top: 1.5vh;
-    background-color: #064F51;
-}
-
-.logoUsuario{
-    margin-top: 2vh;
-    margin-right: 4vh;
-    background-color: #096366dc;
-    width: 3vw;
-    height: 3vh;
-    border-radius: 5px;
-}
-
-.nomeUsuario{
-    margin-top: 2vh;
-    margin-right: 1.5vh;
-    border-radius: 5px;
-}
-
-
-
 .tabela{
         margin-top: 2vw;
         background-color: WHITE;

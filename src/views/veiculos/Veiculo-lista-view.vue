@@ -41,7 +41,7 @@
               <th class="col-md1">{{item.ano}}</th>
               <th class ="col-md-2">{{item.modelo.nome}}</th>
               <th class="col-md-2">
-                <!-- <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                     <RouterLink type="button" class="btn text-align-center col-md-2" 
                       :to="{name: 'veiculo-cadastrar-editar', query: {id: item.id, form: 'editar'}}">
                       <span class="badge bg-warning btn text-align-center col">EDITAR</span>
@@ -50,7 +50,7 @@
                       :to="{name: 'veiculo-cadastrar-excluir', query: {id: item.id, form: 'excluir'}}">
                       <span class="badge bg-danger btn text-align-center col">EXCLUIR</span>
                     </RouterLink>
-                </div> -->
+                </div>
               </th>
             </tr>
 

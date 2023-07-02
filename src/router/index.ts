@@ -24,6 +24,23 @@ const routes: Array<RouteRecordRaw> = [
     component:() => import('../views/veiculos/Veiculo-lista-view.vue')
   },
   {
+    path: '/veiculo-modelo-lista',
+    name: 'VeiculoForm',
+    component: () => import(/* webpackChunkName: "about" */ '../views/veiculos/Veiculo-FormView.vue'),
+    children: [
+      {
+        path: '/veiculo-cadastrar',
+        name: 'veiculo-cadastrar-editar',
+        component: () => import(/* webpackChunkName: "about" */ '../views/veiculos/Veiculo-FormView.vue'),
+      },
+      {
+        path: '/veiculo-cadastrar',
+        name: 'veiculo-cadastrar-excluir',
+        component: () => import(/* webpackChunkName: "about" */ '../views/veiculos/Veiculo-FormView.vue'),
+      },
+    ]
+  },
+  {
     path: '/listaCorridas',
     name: 'listacorridas',
     component: () => import(/* webpackChunkName: "about" */ '../views/Motorista/Motorista-Historico.vue')
