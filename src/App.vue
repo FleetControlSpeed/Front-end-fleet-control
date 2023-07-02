@@ -54,10 +54,10 @@
 }
 .opcoes-nav{
   color: white;
-  margin-top: 27%;
+  margin-top: 39%;
 }
 .nomeUsuario{
-  margin-top: 11%;
+  margin-top: 15%;
 }
 .nav{
    background-color: #064F51;
@@ -66,10 +66,12 @@
 
 .logo{
     padding-left: 8vh;
+    margin-bottom: 0.5%;
 }
 
 .nav-item{
-    padding-top: 1.5vh;
+    padding-top: 1vh;
+    margin-top: 5%;
     justify-content: center;
     align-items: center;
     padding-left: 8vh;
@@ -77,7 +79,7 @@
 
 .botao{
     color: white;
-    margin-top: 1.5vh;
+    margin-top: 23%;
     background-color: #064F51;
 }
 
