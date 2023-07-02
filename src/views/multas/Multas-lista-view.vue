@@ -21,12 +21,12 @@
                     </tr>
                 </thead>
                 <tbody class="table">
-                    <tr>
-                        <th scope="row">Cristovão Martins</th>
-                        <th scope="row">87364523</th> 
-                        <th scope="row">195,23</th> 
-                        <th scope="row">Velocidade</th> 
-                        <th scope="row">21/12/2022</th> 
+                    <tr v-for="item in multasList" :key="item.id">
+                        <th scope="row">{{item.usuario.nome}}</th>
+                        <th scope="row">{{item.id}}</th> 
+                        <th scope="row">{{item.valor}}</th> 
+                        <th scope="row">{{item.tipoMulta}}</th> 
+                        <th scope="row">{{item.dataMulta}}</th> 
                         <th scope="row">
                             <input class="status-multa" type="text" placeholder="PAGO" readonly>
                         </th> 
@@ -39,9 +39,9 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent } from 'vue';
-
-import VeiculoClient  from '@/client/VeiculoClient';
+import { defineComponent } from 'vue';
+import {multa} from '@/models/multa'
+import multaClient  from '@/client/multaClient';
 
 export default defineComponent({
   name: 'VeiculoLista',
@@ -56,9 +56,9 @@ export default defineComponent({
   methods: {
 
     findAll() {
-      VeiculoClient.listaAll()
+      multaClient.listaAll()
         .then(sucess => {
-          this.veiculosList = sucess
+          this.multasList = sucess
         })
         .catch(error => {
           console.log(error);
