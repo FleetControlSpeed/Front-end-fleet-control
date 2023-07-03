@@ -1,17 +1,18 @@
 <template>
-  <div class="container">
+  <div class="container" >
     <div class="row">
       <div class="col-md-10 text-start">
-        <p class="fs-3">Cadastrar Multa</p>
+        <p class="fs-3">Cadastrar Usuario</p>
       </div>
       <div class="col-md-2"></div>
     </div>
+
     <hr />
 
     <div v-if="mensagem.ativo" class="row">
       <div class="col-md-12 text-start">
         <div :class="mensagem.css" role="alert">
-          <strong>{{ mensagem.titulo }}</strong> {{ mensagem.mensagem }}
+          <strong>{{ mensagem.titulo }}</strong> {{mensagem.mensagem}}
           <button
             type="button"
             class="btn-close"
@@ -24,38 +25,97 @@
 
     <div class="row">
       <div class="col-md-6 text-start">
-        <label class="form-label">Valor *</label>
+        <label class="form-label">Email *</label>
         <input
-          type="text"
+          type="email"
           :disabled="this.form === 'excluir' ? '' : disabled"
           class="form-control"
-          v-model="multa.valor"
+          v-model="usuario.email"
         />
 
-        <label class="form-label">Tipo de Multa *</label>
-        <input
-          type="text"
-          :disabled="this.form === 'excluir' ? '' : disabled"
-          class="form-control"
-          v-model="multa.tipoMulta" placeholder="Tipo de Multa"
-        />
-
-      <label>Usuarios</label>
-       <select class="form-select" v-model="multa.usuario">
-          <option v-for="item in usuariosList" :key="item.id" :value="item">
-            {{ item.email }}
-          </option>
+        <label class="form-label">Cargo *</label>
+       <select class="form-select" v-model="usuario.cargo">
+          <option value="MOTORISTA">Motorista</option>
+           <option value="ADMIN">Admin</option>
         </select>
 
-         <label>Data da Multa</label>
-         <br>
-          <input type="date" v-model="multa.dataMulta">
-          
+      </div>
+      <div class="col-md-6 text-start">
+        <label class="form-label">Usuario *</label>
+        <input
+          type="text"
+          :disabled="this.form === 'excluir' ? '' : disabled"
+          class="form-control"
+          v-model="usuario.usuario"
+        />
+      </div>
+
+      <div class="col-md-6 text-start">
+        <label class="form-label">Senha *</label>
+        <input
+          type="password"
+          :disabled="this.form === 'excluir' ? '' : disabled"
+          class="form-control"
+          v-model="usuario.senha"
+        />
+      </div>
+
+       <div class="col-md-6 text-start">
+        <label class="form-label">Nome *</label>
+        <input
+          type="text"
+          :disabled="this.form === 'excluir' ? '' : disabled"
+          class="form-control"
+          v-model="usuario.nome"
+        />
+      </div>
+
+<div class="col-md-6 text-start">
+        <label class="form-label">Telefone *</label>
+        <input
+          type="text"
+          :disabled="this.form === 'excluir' ? '' : disabled"
+          class="form-control"
+          v-model="usuario.telefone"
+        />
+      </div>
+
+      <div class="col-md-6 text-start">
+        <label class="form-label">CPF *</label>
+        <input
+          type="text"
+          :disabled="this.form === 'excluir' ? '' : disabled"
+          class="form-control"
+          v-model="usuario.cpf"
+        />
+      </div>
+
+      <div class="col-md-6 text-start">
+        <label class="form-label">Endereço *</label>
+        <input
+          type="text"
+          :disabled="this.form === 'excluir' ? '' : disabled"
+          class="form-control"
+          v-model="usuario.endereco"
+        />
+      </div>
+
+      <div class="col-md-6 text-start">
+        <label class="form-label">Data de Nascimento *</label>
+        <input
+          type="text"
+          :disabled="this.form === 'excluir' ? '' : disabled"
+          class="form-control"
+          v-model="usuario.dataNascimento"
+        />
+      </div>
+      <br><br><p></p>
+       
 
       <div class="row">
         <div class="col-md-3 offset-md-6">
           <div class="d-grid gap-2">
-            <router-link type="button" class="btn btn-info" to="/lista-multas"
+            <router-link type="button" class="btn btn-info" to="/usuario-lista"
               >Voltar
             </router-link>
           </div>
@@ -91,21 +151,18 @@
       </div>
     </div>
   </div>
-  </div>
 </template>
 
 <script lang="ts">
-import multaClient from "@/client/multaClient";
-import  UsuarioClient from "@/client/usuarioClient";
-import { multa } from "@/models/multa";
+import usuarioClient from "@/client/usuarioClient";
+import { Usuario } from "@/models/usuario";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "multaFormulario",
+  name: "UsuarioForm",
   data() {
     return {
-      multa: new multa(),
-      usuariosList: [],
+      usuario: new Usuario(),
       mensagem: { 
         ativo: false as boolean,
         titulo: "" as string,
@@ -123,16 +180,15 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.usuariosAtivos();
     if (this.id !== undefined) {
       this.findById(Number(this.id));
     }
   },
   methods: {
     onClickCadastrar() {
-      multaClient.cadastrar(this.multa)
+      usuarioClient.cadastrar(this.usuario)
         .then((sucess) => {
-          this.multa = new multa();
+          this.usuario = new Usuario();
           this.mensagem.ativo = true;
           this.mensagem.mensagem = sucess;
           this.mensagem.titulo = "Parabens. ";
@@ -146,9 +202,9 @@ export default defineComponent({
         });
     },
     findById(id: number) {
-      multaClient.findById(id)
+      usuarioClient.findById(id)
         .then((sucess) => {
-          this.multa = sucess;
+          this.usuario = sucess;
         })
         .catch((error) => {
           this.mensagem.ativo = true;
@@ -158,9 +214,9 @@ export default defineComponent({
         });
     },
     onClickEditar() {
-      multaClient.editar(this.multa.id, this.multa)
+      usuarioClient.editar(this.usuario.id,this.usuario)
         .then((sucess) => {
-        this.multa = new multa();
+          this.usuario = new Usuario();
           this.mensagem.ativo = true;
           this.mensagem.mensagem = sucess;
           this.mensagem.titulo = "Parabens. ";
@@ -174,10 +230,10 @@ export default defineComponent({
         });
     },
     onClickExcluir() {
-      multaClient.excluir(this.multa.id)
+      usuarioClient.excluir(this.usuario.id)
         .then((sucess) => {
-          this.multa = new multa();
-          this.$router.push({ name: "lista-multas" });
+          this.usuario = new Usuario();
+          this.$router.push({ name: "usuarioForm" });
         })
         .catch((error) => {
           this.mensagem.ativo = true;
@@ -186,15 +242,6 @@ export default defineComponent({
           this.mensagem.css = "alert alert-danger alert-dismissible fade show";
         });
     },
-     usuariosAtivos() {
-      UsuarioClient.listaAllAtivos()
-        .then((sucess) => {
-          this.usuariosList = sucess;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
   },
 });
 </script>

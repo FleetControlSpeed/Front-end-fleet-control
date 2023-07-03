@@ -7,11 +7,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'login',
     component: Login
   },
-  {
-    path: '/lista-historico-motorista',
-    name: 'lista-historico-motorista',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Motorista/Motorista-Historico.vue')
-  },
+  
   {
     path: '/recuperarSenha',
     name: 'recuperarSenha',
@@ -59,6 +55,51 @@ const routes: Array<RouteRecordRaw> = [
         path: '/multa-cadastrar',
         name: 'multa-cadastrar-excluir',
         component: () => import(/* webpackChunkName: "about" */ '../views/multas/Multa-FormView.vue'),
+      },
+    ]
+  },
+  {
+    path: '/modelo-lista',
+    name: 'modelo-lista',
+    component:() => import('../views/Modelo/Modelo-lista-view.vue')
+  },
+  {
+    path: '/modelo-modelo-lista',
+    name: 'modeloForm',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/Modelo-Form-View.vue'),
+    children: [
+      {
+        path: '/modelo-cadastrar',
+        name: 'modelo-cadastrar-editar',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/Modelo-Form-View.vue'),
+      },
+      {
+        path: '/modelo-cadastrar',
+        name: 'modelo-cadastrar-excluir',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/Modelo-Form-View.vue'),
+      },
+    ]
+  },
+
+  {
+    path: '/usuario-lista',
+    name: 'usuario-lista',
+    component:() => import('../views/Usuario/Usuario-lista-view.vue')
+  },
+  {
+    path: '/modelo-usuario-lista',
+    name: 'usuarioForm',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Usuario/Usuario-Form-View.vue'),
+    children: [
+      {
+        path: '/usuario-cadastrar',
+        name: 'usuario-cadastrar-editar',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Usuario/Usuario-Form-View.vue'),
+      },
+      {
+        path: '/usuario-cadastrar',
+        name: 'usuario-cadastrar-excluir',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Usuario/Usuario-Form-View.vue'),
       },
     ]
   },

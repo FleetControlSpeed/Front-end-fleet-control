@@ -1,9 +1,10 @@
 <template>
-<nav>
-
-  <router-link to="/lista-historico-motorista">Motorista</router-link>|
+<nav class="navbarcentral">
+  <h1>Fleet Control</h1>
   <router-link to="/lista-multas">Multas</router-link>|
   <router-link to="/lista-veiculos">Veiculos</router-link>|
+  <router-link to="/modelo-lista">Modelo</router-link>|
+  <router-link to="/usuario-lista">Usuario</router-link>
 </nav>
 
 <router-view/>
@@ -34,8 +35,12 @@ nav {
     color: #2c3e50;
 
     &.router-link-exact-active {
-      color: #26A69A;
+      color: white;
     }
   }
+
+}
+.navbarcentral{
+  background-color:#26A69A
 }
 </style>

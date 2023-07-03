@@ -8,7 +8,7 @@ class modeloClient {
 
     constructor() {
         this.axiosClient = axios.create({
-            baseURL: 'http://localhost:8080/api/modelos',
+            baseURL: 'http://localhost:8080/api/modelo',
             headers: {'Content-type' : 'application/json'}
         });
     }
@@ -31,7 +31,7 @@ class modeloClient {
 
     public async listaAllAtivos(): Promise<any> {
         try {
-            return (await this.axiosClient.get<Modelo[]>(`/lista/ativos`)).data
+            return (await this.axiosClient.get<Modelo[]>(`/listarPorAtivo`)).data
         } catch (error:any) {
             return Promise.reject(error.response)
         }
@@ -46,7 +46,7 @@ class modeloClient {
     }
     public async editar(id: number, Modelo: Modelo): Promise<string> {
         try {
-            return (await this.axiosClient.put<string>(`/${id}`, Modelo)).data
+            return (await this.axiosClient.put<string>(`/editar/${id}`, Modelo)).data
         } catch (error:any) {
             return Promise.reject(error.response)
         }

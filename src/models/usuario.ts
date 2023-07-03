@@ -6,11 +6,10 @@ export class Usuario extends AbstractEntity{
     usuario!: string
     senha!: string
     cargo!: Cargo
-    primeiroNome!: string
-    sobrenome!: string
+    nome!: string
     cpf!: string
     telefone!: string
-    dataNascimento!: string
+    dataNascimento!: Date
     endereco!:string
 
     constructor(){

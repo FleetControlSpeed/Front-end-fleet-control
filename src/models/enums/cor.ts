@@ -1,4 +1,4 @@
-export enum Cor{
+export enum Cor {
     AMARELO = 'AMARELO',
     AZUL = 'AZUL',
     BEGE = 'BEGE',
@@ -15,4 +15,5 @@ export enum Cor{
     VERDE = 'VERDE',
     VERMELHA = 'VERMELHA',
     FANTASIA = 'FANTASIA',
-}
+  }
+  
