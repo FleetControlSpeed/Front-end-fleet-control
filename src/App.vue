@@ -1,5 +1,5 @@
 <template>
-  <div>
+ 
     <nav class=" navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid nav">
     <img alt="Logo"  src="LogoNav.png" class="logo">
@@ -21,9 +21,7 @@
             <section class="dropdown-menu">
             <section class="dropdown-item">Perfil</section>
             <section class="dropdown-divider"></section>
-            <router-link to="form/senha">
-              <section class="dropdown-item">Multas</section>
-            </router-link>
+            <section class="dropdown-item">Multas</section>
             <section class="dropdown-item">Historico</section>
             <section class="dropdown-divider"></section>
             <section class="dropdown-item">Configurações</section>
@@ -40,58 +38,41 @@
       </div>
     </div>
 </nav>
+
 <router-view/>
-  </div>
-</template> 
+
+</template>
 
 <style lang="scss">
+// Variable overrides first
+$primary: #900;
+$enable-shadows: true;
+$prefix: "mo-";
+
+
 #app {
-  background-color: rgba(233, 233, 233, 0.226);
-  font-family: 'Inter', sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: white;
-  height: 100vh;
-  width: 100vw;
-}
-.opcoes-nav{
-  color: white;
-  margin-top: 39%;
-}
-.nomeUsuario{
-  margin-top: 15%;
-}
-.nav{
-   background-color: #064F51;
-   color: white;
+  color: #2c3e50;
 }
 
-.logo{
-    padding-left: 8vh;
-    margin-bottom: 0.5%;
-}
+nav {
+  padding: 30px;
 
-.nav-item{
-    padding-top: 1vh;
-    margin-top: 5%;
-    justify-content: center;
-    align-items: center;
-    padding-left: 8vh;
-}
+  a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #2c3e50;
 
-.botao{
-    color: white;
-    margin-top: 23%;
-    background-color: #064F51;
-}
+    &.router-link-exact-active {
+      color: white;
+    }
+  }
 
-.logoUsuario{
-    margin-top: 2vh;
-    margin-right: 4vh;
-    background-color: #096366dc;
-    width: 3vw;
-    height: 3vh;
-    border-radius: 5px;
 }
-
+.navbarcentral{
+  background-color:#26A69A
+}
 </style>
