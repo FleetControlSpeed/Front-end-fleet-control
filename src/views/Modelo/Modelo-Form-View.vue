@@ -1,6 +1,6 @@
 <template>
 
-  <div class="container" style="background: ;">
+  <div class="container" >
 
     <div class="row">
       <div class="col-md-10 text-start"> <p class="fs-3"> Cadastrar Modelo </p> </div>
