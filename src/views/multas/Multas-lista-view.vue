@@ -8,7 +8,7 @@
                 </div>
            
                 <div class="col botao-cadastrar">
-                    <router-link to='/marca/cadastrar'>
+                    <router-link to='/'>
                         <button type="button" class="btn btn-success botao-texto"><img src="/logoCadastrar.png">Adicionar Multa</button>
                     </router-link>
                 </div>
@@ -29,34 +29,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import {multa} from '@/models/multa'
-import multaClient  from '@/client/multaClient';
 
-export default defineComponent({
-  name: 'VeiculoLista',
-  data() {
-    return {
-        multasList: new Array<multa>(),
-
-    }
-  },
-  mounted() {
-    this.findAll();
-  },
-  methods: {
-
-    findAll() {
-      multaClient.listaAll()
-        .then(sucess => {
-          this.multasList = sucess
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
-  }
-});
 
 </script>
 

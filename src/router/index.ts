@@ -43,7 +43,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/listaCorridas',
     name: 'listacorridas',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Motorista/Motorista-Historico.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/motorista/Motorista-Historico.vue')
   }
 ]
 
