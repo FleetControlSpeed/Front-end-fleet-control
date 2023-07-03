@@ -58,6 +58,11 @@
         </div>
 </div>
 
+    <div class="col botao-voltar">
+        <router-link to='/marca/cadastrar'>
+            <button type="button" class="btn btn-success botao-texto">Voltar</button>
+        </router-link>
+    </div>
 </template>
 
 <script lang="ts">
@@ -215,6 +220,14 @@ export default defineComponent({
     .botao-texto{
     color: white;
     background-color: #064F51;
+}
+
+.botao-voltar{
+    color: white;
+    text-align: left;
+    margin-left: 35vh;
+    margin-top: 1.5vh;
+  
 }
    
 </style>
