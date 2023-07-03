@@ -4,6 +4,7 @@
   <router-link to="/lista-historico-motorista">Motorista</router-link>|
   <router-link to="/lista-multas">Multas</router-link>|
   <router-link to="/lista-veiculos">Veiculos</router-link>|
+  <router-link to="/modelo-lista">Modelo</router-link>
 </nav>
 
 <router-view/>

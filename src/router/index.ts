@@ -10,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/lista-historico-motorista',
     name: 'lista-historico-motorista',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Motorista/Motorista-Historico.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Motorista/Motorista-lista-View.vue')
   },
   {
     path: '/recuperarSenha',
@@ -59,6 +59,28 @@ const routes: Array<RouteRecordRaw> = [
         path: '/multa-cadastrar',
         name: 'multa-cadastrar-excluir',
         component: () => import(/* webpackChunkName: "about" */ '../views/multas/Multa-FormView.vue'),
+      },
+    ]
+  },
+  {
+    path: '/modelo-lista',
+    name: 'modelo-lista',
+    component:() => import('../views/Modelo/Modelo-lista-view.vue')
+  },
+  {
+    path: '/modelo-modelo-lista',
+    name: 'modeloForm',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/Modelo-Form-View.vue'),
+    children: [
+      {
+        path: '/modelo-cadastrar',
+        name: 'modelo-cadastrar-editar',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/Modelo-Form-View.vue'),
+      },
+      {
+        path: '/modelo-cadastrar',
+        name: 'modelo-cadastrar-excluir',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Modelo/Modelo-Form-View.vue'),
       },
     ]
   },

@@ -34,27 +34,12 @@
         />
 
         <label class="form-label">Modelo *</label>
-        <input
-          type="text"
-          :disabled="this.form === 'excluir' ? '' : disabled"
-          class="form-control"
-          v-model="veiculo.modelo.nome" placeholder="Modelo"
-        />
+       <select class="form-select" v-model="veiculo.modelo">
+          <option v-for="item in modelosList" :key="item.id" :value="item">
+            {{item.nome}}
+          </option>
+        </select>
 
-         <label>Tipo</label>
-          <select class="form-control" v-model="modelo.marca">
-            <option value="undefined" disabled hidden>Marca</option>
-            <option value="FIAT">FIAT</option>
-            <option value="CHEVROLET">CHEVROLET</option>
-            <option value="VOLKSWAGEN">VOLKSWAGEN</option>
-            <option value="HYUNDAI">HYUNDAI</option>
-            <option value="RENAULT">RENAULT</option>
-            <option value="HONDA">HONDA</option>
-            <option value="VOLVO">VOLVO</option>
-            <option value="SCANIA">SCANIA</option>
-            <option value="MERCEDES">MERCEDES</option>
-
-          </select>
       </div>
       <div class="col-md-6 text-start">
         <label class="form-label">Ano *</label>
@@ -103,9 +88,9 @@
             <option value="PRATA">PRATA</option>
             <option value="PRETO">PRETO</option>
             <option value="ROSA">ROSA</option>
-            <option value="ROXA">ROXA</option>
+            <option value="ROXO">ROXO</option>
             <option value="VERDE">VERDE</option>
-            <option value="VERMELHA">VERMELHA</option>
+            <option value="VERMELHO">VERMELHO</option>
             <option value="FANTASIA">FANTASIA</option>
           </select>
         </div>
@@ -167,7 +152,6 @@ export default defineComponent({
       veiculo: new Veiculo(),
       modelo : new Modelo(),
       veiculosList: [],
-      marcasList: [],
       modelosList: [],
       mensagem: { 
         ativo: false as boolean,
@@ -251,7 +235,7 @@ export default defineComponent({
         });
     },
     modeloListAll() {
-      modeloClient.listaAll()
+      modeloClient.listaAllAtivos()
         .then((sucess) => {
           this.modelosList = sucess;
         })
