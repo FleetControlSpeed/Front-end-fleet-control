@@ -38,11 +38,11 @@
           type="text"
           :disabled="this.form === 'excluir' ? '' : disabled"
           class="form-control"
-          v-model="veiculo.modelo"
+          v-model="veiculo.modelo.nome" placeholder="Modelo"
         />
 
          <label>Tipo</label>
-          <select class="form-control" v-model="veiculo.Modelo.Marca">
+          <select class="form-control" v-model="modelo.Marca">
             <option value="undefined" disabled hidden>Marca</option>
             <option value="FIAT">FIAT</option>
             <option value="CHEVROLET">CHEVROLET</option>
@@ -63,6 +63,16 @@
           :disabled="this.form === 'excluir' ? '' : disabled"
           class="form-control"
           v-model="veiculo.ano"
+        />
+      </div>
+
+      <div class="col-md-6 text-start">
+        <label class="form-label">Km *</label>
+        <input
+          type="text"
+          :disabled="this.form === 'excluir' ? '' : disabled"
+          class="form-control"
+          v-model="veiculo.km"
         />
       </div>
 
@@ -105,7 +115,7 @@
       <div class="row">
         <div class="col-md-3 offset-md-6">
           <div class="d-grid gap-2">
-            <router-link type="button" class="btn btn-info" to="/veiculo-lista"
+            <router-link type="button" class="btn btn-info" to="/lista-veiculos"
               >Voltar
             </router-link>
           </div>
@@ -146,6 +156,7 @@
 <script lang="ts">
 import modeloClient from "@/client/modeloClient";
 import VeiculoClient from "@/client/VeiculoClient";
+import { Modelo } from "@/models/modelo";
 import { Veiculo } from "@/models/veiculo";
 import { defineComponent } from "vue";
 
@@ -154,6 +165,7 @@ export default defineComponent({
   data() {
     return {
       veiculo: new Veiculo(),
+      modelo : new Modelo(),
       veiculosList: [],
       marcasList: [],
       modelosList: [],
@@ -181,7 +193,7 @@ export default defineComponent({
   },
   methods: {
     onClickCadastrar() {
-      debugger;
+     
       VeiculoClient.cadastrar(this.veiculo)
         .then((sucess) => {
           this.veiculo = new Veiculo();
@@ -192,7 +204,7 @@ export default defineComponent({
         })
         .catch((error) => {
           this.mensagem.ativo = true;
-          this.mensagem.mensagem = error;
+          this.mensagem.mensagem = error.data;
           this.mensagem.titulo = "Error. ";
           this.mensagem.css = "alert alert-danger alert-dismissible fade show";
         });
@@ -204,7 +216,7 @@ export default defineComponent({
         })
         .catch((error) => {
           this.mensagem.ativo = true;
-          this.mensagem.mensagem = error;
+          this.mensagem.mensagem = error.data;
           this.mensagem.titulo = "Error. ";
           this.mensagem.css = "alert alert-danger alert-dismissible fade show";
         });
@@ -220,7 +232,7 @@ export default defineComponent({
         })
         .catch((error) => {
           this.mensagem.ativo = true;
-          this.mensagem.mensagem = error;
+          this.mensagem.mensagem = error.data;
           this.mensagem.titulo = "Error. ";
           this.mensagem.css = "alert alert-danger alert-dismissible fade show";
         });
@@ -233,7 +245,7 @@ export default defineComponent({
         })
         .catch((error) => {
           this.mensagem.ativo = true;
-          this.mensagem.mensagem = error;
+          this.mensagem.mensagem = error.data;
           this.mensagem.titulo = "Error. ";
           this.mensagem.css = "alert alert-danger alert-dismissible fade show";
         });
