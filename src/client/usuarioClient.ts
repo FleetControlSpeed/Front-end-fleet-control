@@ -7,7 +7,7 @@ export class UsuarioClient{
 
     constructor() {
         this.axiosClient = axios.create({
-            baseURL: 'http://localhost:8080/api/usuario',
+            baseURL: 'http://localhost:8080/api/condutores',
             headers: {'Content-type' : 'application/json'}
         });
     }
@@ -15,6 +15,21 @@ export class UsuarioClient{
     public async findById(id: number) : Promise<Usuario> {
         try {
             return (await this.axiosClient.get<Usuario>(`/${id}`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
+	public async listaAll(): Promise<any> {
+        try {
+            return (await this.axiosClient.get<Usuario[]>(`/lista`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
+
+	public async listaAllAtivos(): Promise<any> {
+        try {
+            return (await this.axiosClient.get<Usuario[]>(`/listar/ativos`)).data
         } catch (error:any) {
             return Promise.reject(error.response)
         }
@@ -52,3 +67,5 @@ export class UsuarioClient{
 		}
 	}
 } 
+
+export default new UsuarioClient();

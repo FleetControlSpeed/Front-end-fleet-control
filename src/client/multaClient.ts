@@ -45,7 +45,7 @@ class multaClient {
     }
     public async editar(id: number, multa: multa): Promise<string> {
         try {
-            return (await this.axiosClient.put<string>(`/${id}`, multa)).data
+            return (await this.axiosClient.put<string>(`/editar/${id}`, multa)).data
         } catch (error:any) {
             return Promise.reject(error.response)
         }

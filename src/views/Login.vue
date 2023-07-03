@@ -1,33 +1,33 @@
 <template>
+  <div class="fundo">
+    <img alt="Vue logo" class="logo" src="../assets/fleetControll.png">
+      <h1> BEM VINDO!</h1>
 
-<img alt="Vue logo" class="logo" src="../assets/fleetControll.png">
-  <h1> BEM VINDO!</h1>
+    <form>
 
-<form>
+      <div class="mb-3">
+        <input type="email" class="form-control" id="input" placeholder="LOGIN">
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" id="input" placeholder="SENHA">
+      </div> 
 
-  <div class="mb-3">
-    <input type="email" class="form-control" id="input" placeholder="LOGIN">
+      <div>
+        <router-link to="/lista-multas">
+          <button type="submit" class="btn">
+            ENTRAR
+          </button>  
+        </router-link>
+      </div>  
+
+      <div class="esqueciSenha">
+        <router-link to="/about" >
+          ESQUECI MINHA SENHA
+        </router-link>
+      </div>
+
+    </form>
   </div>
-  <div class="mb-3">
-    <input type="password" class="form-control" id="input" placeholder="SENHA">
-  </div> 
-
-  <div>
-    <router-link to="/lista-multas">
-      <button type="submit" class="btn">
-        ENTRAR
-      </button>  
-    </router-link>
-  </div>  
-
-  <div class="esqueciSenha">
-    <router-link to="/about" >
-       ESQUECI MINHA SENHA
-    </router-link>
-  </div>
-
-</form>
-
 </template>
 
 <script lang="ts">
@@ -39,6 +39,13 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+
+.fundo{
+  background-color: #064F51;
+  width: 100vw;
+  height: 100vh;
+}
+
 .logo{
   margin-top: 10vh;
   transform: scale(1.2);

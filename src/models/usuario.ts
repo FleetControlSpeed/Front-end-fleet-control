@@ -2,7 +2,7 @@ import { AbstractEntity } from "./abstract.entity";
 import { Cargo } from "./enums/cargo";
 
 export class Usuario extends AbstractEntity{
-    email!: string
+    email !: string
     usuario!: string
     senha!: string
     cargo!: Cargo
@@ -13,5 +13,7 @@ export class Usuario extends AbstractEntity{
     dataNascimento!: string
     endereco!:string
 
-
+    constructor(){
+        super();
+    }
 }

@@ -10,4 +10,9 @@ export class Veiculo extends AbstractEntity{
     cor!: Cor
     km!: number
     tipo!: Tipo
+
+    constructor(){
+        super()
+        this.modelo = new Modelo
+    }
 }

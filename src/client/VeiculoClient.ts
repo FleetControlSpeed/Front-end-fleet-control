@@ -22,7 +22,7 @@ class VeiculoClient {
 
     public async listaAll(): Promise<any[]> {
         try {
-            return (await this.axiosClient.get<Veiculo[]>(`/lista`)).data
+            return (await this.axiosClient.get<Veiculo[]>(`/listar`)).data
         } catch (error:any) {
             return Promise.reject(error.response)
         }
@@ -57,6 +57,8 @@ class VeiculoClient {
             return Promise.reject(error.response)
         }
     }
+
+
 }
 
 export default new VeiculoClient();
