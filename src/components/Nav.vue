@@ -3,30 +3,32 @@
     <div class="d-flex justify-content-evenly h-100 d-inline-block">
       <div class="h-100 d-inline-block d-flex align-items-end">
         <ul class="nav nav-tabs">
-          <img alt="Vue logo" class="logo" src="../assets/logo.png">
-          <li class="nav-item">
+      
+          <img alt="Vue logo" class="logo me-4" src="../img/icons8-mapa-641.png">
+          <li class="nav-item mt-4">
             <a class="nav-link active fw-bolder " aria-current="page" href="#">Motoristas</a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link fw-bolder" href="#">Veiculo</a>
+          <li class="nav-item mt-4 ">
+            <a class="nav-link fw-bolder text-color" href="#">Veiculo</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link fw-bolder" href="#">Ajustes</a>
+          <li class="nav-item mt-4">
+            <a class="nav-link fw-bolder text-color" href="#">Ajustes</a>
           </li>
         </ul>
       </div>
 
-      <div class="w-50"></div>
+      <div class="w-25"></div>
 
       <div class="d-flex align-items-center">
         <div class="d-flex flex-column">
           <h8 class="text-color ">Matheus EL Marge</h8>
           <h5>admin</h5>
         </div>
-    
-        <button type="button" class="btn btn-danger  text-color fw-bold fs-font">
+        <router-link to="/">
+        <button type="button" class="btn btn-danger ms-5  text-color fw-bold fs-font">
           Sair
         </button>
+      </router-link>
       </div>
     </div>
   </nav>

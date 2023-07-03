@@ -11,7 +11,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/listagem',
     name: 'listagem',
-    component: () => import(/* webpackChunkName: "listagem" */ '../views/listagem-condutor.vue')
+    component: () => import(/* webpackChunkName: "listagem" */ '../views/condutor/listagem-condutor.vue')
+  },
+  {
+    path: '/condutorcadastro',
+    name: 'condutorcadastro',
+    component:() => import('../views/condutor/CadastroCondutorView.vue')
+  },
+  {
+    path:'/condutorcadastro2',
+    name: 'condutorcadastro2',
+    component:() => import('../views/condutor/CadastroCondutorView2.vue')
   },
   {
     path: '/about',

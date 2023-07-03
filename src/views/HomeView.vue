@@ -19,8 +19,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
  #home{
-  width: 100vw;
-  height: 100vh;
+  width: auto;
+  height: auto;
   background-color: #064F51;
  }
 </style>
