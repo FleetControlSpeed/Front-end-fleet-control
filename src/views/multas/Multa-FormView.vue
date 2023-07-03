@@ -1,12 +1,11 @@
 <template>
-  <div class="container" style="background: ">
+  <div class="container">
     <div class="row">
       <div class="col-md-10 text-start">
-        <p class="fs-3">Cadastrar Veiculo</p>
+        <p class="fs-3">Cadastrar Multa</p>
       </div>
       <div class="col-md-2"></div>
     </div>
-
     <hr />
 
     <div v-if="mensagem.ativo" class="row">
@@ -25,97 +24,38 @@
 
     <div class="row">
       <div class="col-md-6 text-start">
-        <label class="form-label">Placa *</label>
+        <label class="form-label">Valor *</label>
         <input
           type="text"
           :disabled="this.form === 'excluir' ? '' : disabled"
           class="form-control"
-          v-model="veiculo.placa"
+          v-model="multa.valor"
         />
 
-        <label class="form-label">Modelo *</label>
+        <label class="form-label">Tipo de Multa *</label>
         <input
           type="text"
           :disabled="this.form === 'excluir' ? '' : disabled"
           class="form-control"
-          v-model="veiculo.modelo.nome" placeholder="Modelo"
+          v-model="multa.tipoMulta" placeholder="Tipo de Multa"
         />
 
-         <label>Tipo</label>
-          <select class="form-control" v-model="modelo.marca">
-            <option value="undefined" disabled hidden>Marca</option>
-            <option value="FIAT">FIAT</option>
-            <option value="CHEVROLET">CHEVROLET</option>
-            <option value="VOLKSWAGEN">VOLKSWAGEN</option>
-            <option value="HYUNDAI">HYUNDAI</option>
-            <option value="RENAULT">RENAULT</option>
-            <option value="HONDA">HONDA</option>
-            <option value="VOLVO">VOLVO</option>
-            <option value="SCANIA">SCANIA</option>
-            <option value="MERCEDES">MERCEDES</option>
+      <label>Usuarios</label>
+       <select class="form-select" v-model="multa.usuario">
+          <option v-for="item in usuariosList" :key="item.id" :value="item">
+            {{ item.email }}
+          </option>
+        </select>
 
-          </select>
-      </div>
-      <div class="col-md-6 text-start">
-        <label class="form-label">Ano *</label>
-        <input
-          type="text"
-          :disabled="this.form === 'excluir' ? '' : disabled"
-          class="form-control"
-          v-model="veiculo.ano"
-        />
-      </div>
-
-      <div class="col-md-6 text-start">
-        <label class="form-label">Km *</label>
-        <input
-          type="text"
-          :disabled="this.form === 'excluir' ? '' : disabled"
-          class="form-control"
-          v-model="veiculo.km"
-        />
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <label>Tipo</label>
-          <select class="form-control" v-model="veiculo.tipo">
-            <option value="undefined" disabled hidden>Tipo</option>
-            <option value="CARRO">CARRO</option>
-            <option value="VAN">VAN</option>
-            <option value="MOTO">MOTO</option>
-          </select>
-        </div>
-
-        <div class="col-md-6">
-          <label>Cor</label>
-          <select class="form-control" v-model="veiculo.cor">
-            <option value="" disabled hidden>Cor</option>
-            <option value="AMARELO">AMARELO</option>
-            <option value="AZUL">AZUL</option>
-            <option value="BEGE">BEGE</option>
-            <option value="BRANCO">BRANCO</option>
-            <option value="CINZA">CINZA</option>
-            <option value="DOURADA">DOURADA</option>
-            <option value="GRENÁ">GRENÁ</option>
-            <option value="LARANJA">LARANJA</option>
-            <option value="MARROM">MARROM</option>
-            <option value="PRATA">PRATA</option>
-            <option value="PRETO">PRETO</option>
-            <option value="ROSA">ROSA</option>
-            <option value="ROXA">ROXA</option>
-            <option value="VERDE">VERDE</option>
-            <option value="VERMELHA">VERMELHA</option>
-            <option value="FANTASIA">FANTASIA</option>
-          </select>
-        </div>
-      </div>
-      <p><br /></p>
+         <label>Data da Multa</label>
+         <br>
+          <input type="date" v-model="multa.dataMulta">
+          
 
       <div class="row">
         <div class="col-md-3 offset-md-6">
           <div class="d-grid gap-2">
-            <router-link type="button" class="btn btn-info" to="/lista-veiculos"
+            <router-link type="button" class="btn btn-info" to="/lista-multas"
               >Voltar
             </router-link>
           </div>
@@ -151,24 +91,21 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script lang="ts">
-import modeloClient from "@/client/modeloClient";
-import VeiculoClient from "@/client/VeiculoClient";
-import { Modelo } from "@/models/modelo";
-import { Veiculo } from "@/models/veiculo";
+import multaClient from "@/client/multaClient";
+import usuarioClient, { UsuarioClient } from "@/client/usuarioClient";
+import { multa } from "@/models/multa";
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "VeiculoFormulario",
+  name: "multaFormulario",
   data() {
     return {
-      veiculo: new Veiculo(),
-      modelo : new Modelo(),
-      veiculosList: [],
-      marcasList: [],
-      modelosList: [],
+      multa: new multa(),
+      usuariosList: [],
       mensagem: { 
         ativo: false as boolean,
         titulo: "" as string,
@@ -186,17 +123,16 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.modeloListAll();
+    this.usuariosAtivos();
     if (this.id !== undefined) {
       this.findById(Number(this.id));
     }
   },
   methods: {
     onClickCadastrar() {
-      VeiculoClient.cadastrar(this.veiculo)
+      multaClient.cadastrar(this.multa)
         .then((sucess) => {
-          this.modelo = new Modelo();
-          this.veiculo = new Veiculo();
+          this.multa = new multa();
           this.mensagem.ativo = true;
           this.mensagem.mensagem = sucess;
           this.mensagem.titulo = "Parabens. ";
@@ -210,9 +146,9 @@ export default defineComponent({
         });
     },
     findById(id: number) {
-      VeiculoClient.findById(id)
+      multaClient.findById(id)
         .then((sucess) => {
-          this.veiculo = sucess;
+          this.multa = sucess;
         })
         .catch((error) => {
           this.mensagem.ativo = true;
@@ -222,9 +158,9 @@ export default defineComponent({
         });
     },
     onClickEditar() {
-      VeiculoClient.editar(this.veiculo.id, this.veiculo)
+      multaClient.editar(this.multa.id, this.multa)
         .then((sucess) => {
-          this.veiculo = new Veiculo();
+        this.multa = new multa();
           this.mensagem.ativo = true;
           this.mensagem.mensagem = sucess;
           this.mensagem.titulo = "Parabens. ";
@@ -238,10 +174,10 @@ export default defineComponent({
         });
     },
     onClickExcluir() {
-      VeiculoClient.excluir(this.veiculo.id)
+      multaClient.excluir(this.multa.id)
         .then((sucess) => {
-          this.veiculo = new Veiculo();
-          this.$router.push({ name: "VeiculoListView" });
+          this.multa = new multa();
+          this.$router.push({ name: "lista-multas" });
         })
         .catch((error) => {
           this.mensagem.ativo = true;
@@ -250,10 +186,10 @@ export default defineComponent({
           this.mensagem.css = "alert alert-danger alert-dismissible fade show";
         });
     },
-    modeloListAll() {
-      modeloClient.listaAll()
+     usuariosAtivos() {
+      usuarioClient.listaAllAtivos()
         .then((sucess) => {
-          this.modelosList = sucess;
+          this.usuariosList = sucess;
         })
         .catch((error) => {
           console.log(error);

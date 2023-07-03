@@ -8,9 +8,9 @@ const routes: Array<RouteRecordRaw> = [
     component: Login
   },
   {
-    path: '/lista-multas',
-    name: 'lista-multas',
-    component:() => import('../views/multas/Multas-lista-view.vue')
+    path: '/lista-historico-motorista',
+    name: 'lista-historico-motorista',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Motorista/Motorista-Historico.vue')
   },
   {
     path: '/recuperarSenha',
@@ -41,10 +41,28 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
-    path: '/listaCorridas',
-    name: 'listacorridas',
-    component: () => import(/* webpackChunkName: "about" */ '../views/motorista/Motorista-Historico.vue')
-  }
+    path: '/lista-multas',
+    name: 'lista-multas',
+    component:() => import('../views/multas/Multas-lista-view.vue')
+  },
+  {
+    path: '/multa-modelo-lista',
+    name: 'MultaForm',
+    component: () => import(/* webpackChunkName: "about" */ '../views/multas/Multa-FormView.vue'),
+    children: [
+      {
+        path: '/multa-cadastrar',
+        name: 'multa-cadastrar-editar',
+        component: () => import(/* webpackChunkName: "about" */ '../views/multas/Multa-FormView.vue'),
+      },
+      {
+        path: '/multa-cadastrar',
+        name: 'multa-cadastrar-excluir',
+        component: () => import(/* webpackChunkName: "about" */ '../views/multas/Multa-FormView.vue'),
+      },
+    ]
+  },
+ 
 ]
 
 const router = createRouter({

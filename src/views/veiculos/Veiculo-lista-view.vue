@@ -15,8 +15,8 @@
 
     <div class="row">
       <div class="col-md-12">  
-        <table class="table">
-          <thead class="table-secondary" >
+        <table class="table table-striped table-bordered">
+          <thead class="table table-green" >
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Ativo</th>

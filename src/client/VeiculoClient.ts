@@ -57,6 +57,8 @@ class VeiculoClient {
             return Promise.reject(error.response)
         }
     }
+
+
 }
 
 export default new VeiculoClient();
