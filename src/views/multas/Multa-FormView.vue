@@ -81,10 +81,10 @@
             <button
               v-if="this.form === 'excluir'"
               type="button"
-              class="btn btn-danger"
+              class="btn btn-success"
               @click="onClickExcluir()"
             >
-              Excluir
+              Pagar
             </button>
           </div>
         </div>
