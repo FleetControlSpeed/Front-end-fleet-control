@@ -6,7 +6,7 @@
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <router-link to="/listaCorridas"><div class="nav-link active" aria-current="page" href="#">Motoristas</div></router-link>
+          <router-link class="router-link-nav" to="/listaCorridas"><div class="nav-link active" aria-current="page" href="#">Motoristas</div></router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Veiculos</a>
@@ -22,7 +22,7 @@
             <section class="dropdown-item">Perfil</section>
             <section class="dropdown-divider"></section>
             <section class="dropdown-item">Multas</section>
-            <section class="dropdown-item">Historico</section>
+            <router-link to="/listaCorridas"><section class="dropdown-item">Historico</section></router-link>
             <section class="dropdown-divider"></section>
             <section class="dropdown-item">Configurações</section>
 
@@ -43,6 +43,9 @@
 </template> 
 
 <style lang="scss">
+.router-link-nav{
+  text-decoration: none;
+}
 #app {
   background-color: rgba(233, 233, 233, 0.226);
   font-family: 'Inter', sans-serif;

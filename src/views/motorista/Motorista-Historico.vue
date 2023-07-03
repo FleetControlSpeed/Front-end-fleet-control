@@ -7,7 +7,7 @@
         <div class="col-md-2"> 
           <div class="d-grid gap-2">
             <router-link type="button" class="btn btn-success" 
-              to="/veiculo-cadastrar">Voltar
+              to="/">Voltar
             </router-link>
           </div>
         </div>
@@ -15,7 +15,7 @@
   
       <div class="row">
         <div class="col-md-12">  
-          <table class="table">
+          <table class="table table-bordered">
             <thead class="table-secondary" >
               <tr>
                 <th scope="col"> ID </th>
@@ -26,15 +26,14 @@
                 <th scope="col"> Detalhes </th>
               </tr>
             </thead>  
-            <tbody class="table-group-divider">
-              <tr v-for="item in historicoList" :key="item.id">
-                <th class="col-md-1">{{ item.id }}</th>              
-                <th class="col-md-2"> {{ item.nome }} </th>
-                <th class="col-md2">{{item.hora}}</th>
-                <th class="col-md1">{{item.data}}</th>
-                <th class="col-md1">{{item.dataFim}}</th>
-                <th class="col-md-2">
-                </th>
+            <tbody class="table-group-divider text-table">
+              <tr>
+                <th class="col-md-1"> 1</th>              
+                <th class="col-md-2"> Mopa </th>
+                <th class="col-md2"> 12:12:12 </th>
+                <th class="col-md1"> 13/13/13</th>
+                <th class="col-md1">14/14/14</th>
+                <th class="col-md-2"> V </th>
               </tr>
   
             </tbody>
@@ -46,12 +45,15 @@
   </template>
   
   <script lang="ts">
-  
+
   </script>
 
   <style lang="scss">
   .texto-list{
     color:black;
+  }
+  .text-table{
+    color: black;
   }
 
   </style>

@@ -19,6 +19,13 @@ export class UsuarioClient{
             return Promise.reject(error.response)
         }
     }
+	public async listaAll(): Promise<any> {
+        try {
+            return (await this.axiosClient.get<Usuario[]>(`/lista`)).data
+        } catch (error:any) {
+            return Promise.reject(error.response)
+        }
+    }
 
 	public async cadastrar (Usuario : Usuario): Promise<void>{
 		try{
@@ -52,3 +59,5 @@ export class UsuarioClient{
 		}
 	}
 } 
+
+export default new UsuarioClient();
