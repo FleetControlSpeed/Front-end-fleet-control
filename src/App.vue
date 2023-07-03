@@ -1,11 +1,15 @@
 <template>
-<nav class="navbarcentral">
+<Header/>
+
+<!-- <nav class="navbarcentral">
   <h1>Fleet Control</h1>
   <router-link to="/lista-multas">Multas</router-link>|
   <router-link to="/lista-veiculos">Veiculos</router-link>|
   <router-link to="/modelo-lista">Modelo</router-link>|
   <router-link to="/usuario-lista">Usuario</router-link>
-</nav>
+</nav> -->
+
+
 
 <router-view/>
 
@@ -44,3 +48,14 @@ nav {
   background-color:#26A69A
 }
 </style>
+
+<script lang="ts">
+  import Header from '@/Components/Nav.vue'
+import { defineComponent } from 'vue'
+
+  export default defineComponent({
+    components:{
+      Header
+    }
+  })
+</script>
